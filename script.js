@@ -1,13 +1,17 @@
 
 "use strict";
 
-// Menu de navigation sur mobile
+// ========================================
+// 1. MENU DE NAVIGATION SUR MOBILE
+// ========================================
+
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
 if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-        const isOpen = navLinks.classList.toggle("active");
+    // Mettre à jour l'état du menu
+    function updateMenu(isOpen) {
+        navLinks.classList.toggle("active", isOpen);
 
         menuToggle.setAttribute("aria-expanded", String(isOpen));
         menuToggle.setAttribute(
@@ -16,30 +20,40 @@ if (menuToggle && navLinks) {
         );
 
         menuToggle.textContent = isOpen ? "✕" : "☰";
+    }
+
+    // Ouvrir ou fermer le menu avec le bouton
+    menuToggle.addEventListener("click", () => {
+        const isOpen = !navLinks.classList.contains("active");
+        updateMenu(isOpen);
     });
 
-    // Fermer le menu après le clic sur une rubrique
+    // Fermer le menu après avoir choisi une rubrique
     navLinks.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
-            navLinks.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Ouvrir le menu");
-            menuToggle.textContent = "☰";
+            updateMenu(false);
         });
     });
 
     // Fermer le menu avec la touche Échap
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-            navLinks.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Ouvrir le menu");
-            menuToggle.textContent = "☰";
+            updateMenu(false);
+        }
+    });
+
+    // Fermer le menu si on repasse à l'affichage ordinateur
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) {
+            updateMenu(false);
         }
     });
 }
 
-// Mise à jour automatique de l'année dans le pied de page
+// ========================================
+// 2. ANNÉE AUTOMATIQUE DANS LE PIED DE PAGE
+// ========================================
+
 const currentYear = document.getElementById("current-year");
 
 if (currentYear) {

@@ -1,22 +1,31 @@
 
-/* ==============================
-   CONFIGURATION GÉNÉRALE
-============================== */
+/* ========================================
+   PORTFOLIO BARA MBOUP
+   Palette : vert clair + bleu clair
+======================================== */
 
 :root {
-    --background: #080d19;
-    --background-soft: #0c1425;
-    --card: #101b2f;
-    --card-hover: #14223a;
-    --border: rgba(148, 163, 184, 0.16);
-    --text: #f1f5f9;
-    --muted: #a0aec0;
-    --blue: #3b82f6;
-    --cyan: #22d3ee;
-    --purple: #a78bfa;
-    --green: #4ade80;
+    --background: #f5fbf8;
+    --background-soft: #eaf7f0;
+    --card: #ffffff;
+    --card-hover: #f0f9ff;
+
+    --border: #d8e9e1;
+    --text: #183b50;
+    --muted: #587080;
+
+    --green: #35b96f;
+    --green-dark: #16834a;
+    --green-soft: #e0f5e8;
+
+    --blue: #42a5f5;
+    --blue-dark: #2378bc;
+    --blue-soft: #e2f2ff;
+
     --radius: 18px;
     --container: 1120px;
+
+    --shadow: 0 12px 35px rgba(34, 83, 68, 0.08);
 }
 
 * {
@@ -52,17 +61,27 @@ button {
     font: inherit;
 }
 
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
 .container {
     width: min(90%, var(--container));
     margin: 0 auto;
 }
 
 .section {
-    padding: 100px 0;
+    padding: 95px 0;
 }
 
 .gradient-text {
-    background: linear-gradient(110deg, var(--cyan), #7c9cff, var(--purple));
+    background: linear-gradient(
+        110deg,
+        var(--green-dark),
+        var(--blue-dark)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -70,7 +89,7 @@ button {
 
 .section-label,
 .eyebrow {
-    color: var(--cyan);
+    color: var(--green-dark);
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 2px;
@@ -78,7 +97,7 @@ button {
 
 .section-heading {
     max-width: 760px;
-    margin-bottom: 48px;
+    margin-bottom: 45px;
 }
 
 .section-heading h2 {
@@ -89,7 +108,7 @@ button {
 }
 
 .section-heading h2 span {
-    color: var(--cyan);
+    color: var(--blue-dark);
 }
 
 .section-intro {
@@ -98,15 +117,15 @@ button {
     max-width: 620px;
 }
 
-/* ==============================
+/* ========================================
    NAVIGATION
-============================== */
+======================================== */
 
 .header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8, 13, 25, 0.9);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
 }
@@ -123,10 +142,11 @@ button {
     font-size: 1.4rem;
     font-weight: 900;
     letter-spacing: -1px;
+    color: var(--green-dark);
 }
 
 .logo span {
-    color: var(--cyan);
+    color: var(--blue);
 }
 
 .nav-links {
@@ -139,34 +159,36 @@ button {
 .nav-links a {
     color: var(--muted);
     font-size: 0.92rem;
+    font-weight: 600;
     transition: color 0.25s ease;
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-    color: var(--cyan);
+    color: var(--green-dark);
 }
 
 .nav-links .nav-contact {
-    color: var(--text);
+    color: var(--green-dark);
     padding: 10px 17px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--green);
     border-radius: 9px;
+    background: var(--green-soft);
 }
 
 .menu-toggle {
     display: none;
-    color: var(--text);
-    background: var(--card);
-    border: 1px solid var(--border);
+    color: var(--blue-dark);
+    background: var(--blue-soft);
+    border: 1px solid #c4e4fb;
     border-radius: 8px;
     padding: 7px 12px;
     cursor: pointer;
 }
 
-/* ==============================
+/* ========================================
    BOUTONS
-============================== */
+======================================== */
 
 .btn {
     display: inline-flex;
@@ -177,9 +199,10 @@ button {
     border-radius: 10px;
     font-size: 0.94rem;
     font-weight: 750;
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease,
-                background 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
 
 .btn:hover {
@@ -187,27 +210,32 @@ button {
 }
 
 .btn-primary {
-    color: #07111e;
-    background: linear-gradient(120deg, var(--cyan), #60a5fa);
-    box-shadow: 0 8px 28px rgba(34, 211, 238, 0.13);
+    color: #ffffff;
+    background: linear-gradient(
+        120deg,
+        var(--green),
+        var(--green-dark)
+    );
+    box-shadow: 0 8px 22px rgba(53, 185, 111, 0.2);
 }
 
 .btn-primary:hover {
-    box-shadow: 0 12px 35px rgba(34, 211, 238, 0.23);
+    box-shadow: 0 12px 28px rgba(53, 185, 111, 0.3);
 }
 
 .btn-secondary {
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.025);
+    color: var(--blue-dark);
+    border: 1px solid var(--blue);
+    background: var(--blue-soft);
 }
 
 .btn-secondary:hover {
-    background: var(--card);
+    background: #d4eaff;
 }
 
-/* ==============================
+/* ========================================
    ACCUEIL
-============================== */
+======================================== */
 
 .hero {
     min-height: 650px;
@@ -215,18 +243,26 @@ button {
     align-items: center;
     position: relative;
     overflow: hidden;
+
     background:
-        radial-gradient(ellipse at 85% 35%,
-        rgba(37, 99, 235, 0.13), transparent 42%),
-        radial-gradient(ellipse at 10% 80%,
-        rgba(124, 58, 237, 0.08), transparent 35%);
+        radial-gradient(
+            ellipse at 85% 25%,
+            rgba(66, 165, 245, 0.13),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 10% 80%,
+            rgba(53, 185, 111, 0.12),
+            transparent 38%
+        ),
+        var(--background);
 }
 
 .hero-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     align-items: center;
-    gap: 70px;
+    gap: 65px;
 }
 
 .eyebrow {
@@ -237,11 +273,11 @@ button {
 }
 
 .status-dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
+    box-shadow: 0 0 0 5px var(--green-soft);
 }
 
 .hero h1 {
@@ -273,12 +309,13 @@ button {
 .hero-tags span,
 .project-tags span,
 .skill-tags span {
-    color: #cbd5e1;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.025);
+    color: var(--blue-dark);
+    border: 1px solid #d1e8f8;
+    background: var(--blue-soft);
     border-radius: 7px;
     padding: 5px 10px;
     font-size: 0.77rem;
+    font-weight: 600;
 }
 
 .hero-actions {
@@ -288,7 +325,7 @@ button {
     margin-top: 30px;
 }
 
-/* Terminal */
+/* Terminal de code */
 
 .hero-visual {
     position: relative;
@@ -297,11 +334,11 @@ button {
 
 .terminal {
     overflow: hidden;
-    border: 1px solid rgba(96, 165, 250, 0.25);
+    border: 1px solid #c7e5f8;
     border-radius: 16px;
-    background: #0b1220;
-    box-shadow: 0 25px 75px rgba(0, 0, 0, 0.3);
-    transform: perspective(1000px) rotateY(-4deg);
+    background: #ffffff;
+    box-shadow: 0 25px 60px rgba(43, 105, 132, 0.13);
+    transform: perspective(1000px) rotateY(-3deg);
 }
 
 .terminal-header {
@@ -309,13 +346,14 @@ button {
     align-items: center;
     justify-content: space-between;
     padding: 15px 18px;
-    background: #111c30;
-    border-bottom: 1px solid var(--border);
+    background: var(--blue-soft);
+    border-bottom: 1px solid #c7e5f8;
 }
 
 .terminal-header p {
-    color: var(--muted);
+    color: var(--blue-dark);
     font-size: 0.78rem;
+    font-weight: 700;
 }
 
 .terminal-dots {
@@ -327,19 +365,19 @@ button {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: #64748b;
+    background: #a9c5d6;
 }
 
 .terminal-dots span:first-child {
-    background: #fb7185;
+    background: #f28b82;
 }
 
 .terminal-dots span:nth-child(2) {
-    background: #fbbf24;
+    background: #fbbc04;
 }
 
 .terminal-dots span:nth-child(3) {
-    background: #4ade80;
+    background: var(--green);
 }
 
 .terminal-body {
@@ -348,6 +386,7 @@ button {
     font-size: clamp(0.72rem, 1.2vw, 0.91rem);
     line-height: 2;
     overflow-wrap: anywhere;
+    color: #28465b;
 }
 
 .indent {
@@ -363,33 +402,33 @@ button {
 }
 
 .code-purple {
-    color: #c4b5fd;
+    color: #8156b5;
 }
 
 .code-blue {
-    color: #7dd3fc;
+    color: var(--blue-dark);
 }
 
 .code-yellow {
-    color: #fde68a;
+    color: #a46b00;
 }
 
 .code-green {
-    color: #86efac;
+    color: var(--green-dark);
 }
 
 .terminal-comment {
-    color: #64748b;
+    color: #7d929f;
     margin-top: 12px;
 }
 
 .terminal-cursor {
     margin-top: 12px;
-    color: #dbeafe;
+    color: var(--text);
 }
 
 .terminal-cursor span {
-    color: var(--cyan);
+    color: var(--green-dark);
 }
 
 .floating-badge {
@@ -398,10 +437,10 @@ button {
     align-items: center;
     gap: 11px;
     padding: 13px 16px;
-    background: rgba(16, 27, 47, 0.96);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--shadow);
 }
 
 .badge-top {
@@ -419,8 +458,8 @@ button {
     place-items: center;
     width: 35px;
     height: 35px;
-    color: var(--cyan);
-    background: rgba(34, 211, 238, 0.1);
+    color: var(--green-dark);
+    background: var(--green-soft);
     border-radius: 8px;
     font-size: 1.2rem;
 }
@@ -439,9 +478,9 @@ button {
     font-size: 0.7rem;
 }
 
-/* ==============================
-   À PROPOS
-============================== */
+/* ========================================
+   À PROPOS ET FORMATION
+======================================== */
 
 .about-section {
     background: var(--background-soft);
@@ -465,7 +504,7 @@ button {
     display: inline-flex;
     gap: 10px;
     margin-top: 12px;
-    color: var(--cyan);
+    color: var(--blue-dark);
     font-weight: 700;
 }
 
@@ -479,14 +518,16 @@ button {
 
 .education-card {
     padding: 28px;
-    background: var(--card);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .education-card h3 {
     margin-bottom: 25px;
     font-size: 1.15rem;
+    color: var(--green-dark);
 }
 
 .education-item {
@@ -506,12 +547,12 @@ button {
     height: 11px;
     margin-top: 8px;
     border-radius: 50%;
-    background: var(--cyan);
-    box-shadow: 0 0 0 5px rgba(34, 211, 238, 0.09);
+    background: var(--green);
+    box-shadow: 0 0 0 5px var(--green-soft);
 }
 
 .education-date {
-    color: var(--cyan);
+    color: var(--blue-dark);
     font-size: 0.78rem;
     font-weight: 700;
 }
@@ -527,9 +568,9 @@ button {
     font-size: 0.85rem;
 }
 
-/* ==============================
+/* ========================================
    COMPÉTENCES
-============================== */
+======================================== */
 
 .skills-grid {
     display: grid;
@@ -541,13 +582,18 @@ button {
     padding: 28px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    background: linear-gradient(145deg, var(--card), #0b1220);
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(34, 83, 68, 0.045);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .skill-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(34, 211, 238, 0.4);
+    border-color: var(--green);
+    box-shadow: var(--shadow);
 }
 
 .skill-icon {
@@ -557,8 +603,8 @@ button {
     height: 47px;
     margin-bottom: 20px;
     border-radius: 12px;
-    color: var(--cyan);
-    background: rgba(34, 211, 238, 0.09);
+    color: var(--green-dark);
+    background: var(--green-soft);
     font-size: 1.5rem;
 }
 
@@ -573,9 +619,9 @@ button {
     font-size: 0.92rem;
 }
 
-/* ==============================
+/* ========================================
    PROJETS
-============================== */
+======================================== */
 
 .projects-section {
     background: var(--background-soft);
@@ -597,17 +643,23 @@ button {
     padding: 27px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    background: linear-gradient(150deg, #101b2f, #0a1120);
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(34, 83, 68, 0.045);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(96, 165, 250, 0.4);
+    border-color: var(--blue);
+    box-shadow: var(--shadow);
 }
 
 .featured-project {
-    border-color: rgba(34, 211, 238, 0.25);
+    border-color: #b6e7ca;
+    background: linear-gradient(145deg, #ffffff, #f0faf4);
 }
 
 .project-top {
@@ -620,28 +672,29 @@ button {
 }
 
 .project-number {
-    color: #64748b;
+    color: var(--green-dark);
     font-family: Consolas, monospace;
     font-size: 0.9rem;
+    font-weight: 700;
 }
 
 .project-status {
     padding: 5px 9px;
     border-radius: 6px;
-    color: #cbd5e1;
-    background: rgba(148, 163, 184, 0.1);
+    color: #526b7b;
+    background: #edf3f6;
     font-size: 0.7rem;
     font-weight: 700;
 }
 
 .status-progress {
-    color: #93c5fd;
-    background: rgba(59, 130, 246, 0.12);
+    color: var(--blue-dark);
+    background: var(--blue-soft);
 }
 
 .status-planned {
-    color: #c4b5fd;
-    background: rgba(167, 139, 250, 0.12);
+    color: var(--green-dark);
+    background: var(--green-soft);
 }
 
 .project-symbol {
@@ -652,7 +705,7 @@ button {
     margin-bottom: 18px;
     border: 1px solid var(--border);
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.035);
+    background: var(--green-soft);
     font-size: 1.6rem;
 }
 
@@ -663,7 +716,7 @@ button {
 
 .project-subtitle {
     margin-top: 3px;
-    color: var(--cyan);
+    color: var(--blue-dark);
     font-size: 0.88rem;
     font-weight: 700;
 }
@@ -677,25 +730,29 @@ button {
 
 .project-note {
     margin-top: 17px;
-    color: #8493a9;
+    color: #6d8491;
     font-size: 0.76rem;
 }
 
-/* ==============================
+/* ========================================
    CONTACT
-============================== */
+======================================== */
 
 .contact-card {
     position: relative;
     overflow: hidden;
     padding: 65px 35px;
     text-align: center;
-    border: 1px solid rgba(34, 211, 238, 0.22);
+    border: 1px solid #c6e9d4;
     border-radius: 24px;
     background:
-        radial-gradient(ellipse at top,
-        rgba(37, 99, 235, 0.16), transparent 65%),
-        var(--card);
+        radial-gradient(
+            ellipse at top right,
+            rgba(66, 165, 245, 0.13),
+            transparent 55%
+        ),
+        linear-gradient(135deg, #ffffff, #eaf8f0);
+    box-shadow: var(--shadow);
 }
 
 .contact-card h2 {
@@ -707,7 +764,7 @@ button {
 }
 
 .contact-card h2 span {
-    color: var(--cyan);
+    color: var(--blue-dark);
 }
 
 .contact-card > p:not(.section-label):not(.contact-note) {
@@ -718,16 +775,17 @@ button {
 
 .contact-note {
     margin-top: 16px;
-    color: #8493a9;
+    color: var(--muted);
     font-size: 0.76rem;
 }
 
-/* ==============================
+/* ========================================
    PIED DE PAGE
-============================== */
+======================================== */
 
 .footer {
     padding: 28px 0;
+    background: #ffffff;
     border-top: 1px solid var(--border);
 }
 
@@ -744,9 +802,9 @@ button {
     font-size: 0.8rem;
 }
 
-/* ==============================
+/* ========================================
    RESPONSIVE : TABLETTES
-============================== */
+======================================== */
 
 @media (max-width: 900px) {
     .section {
@@ -781,9 +839,9 @@ button {
     }
 }
 
-/* ==============================
+/* ========================================
    RESPONSIVE : MOBILES
-============================== */
+======================================== */
 
 @media (max-width: 640px) {
     .container {
@@ -812,8 +870,9 @@ button {
         flex-direction: column;
         align-items: stretch;
         gap: 5px;
-        background: #0c1425;
+        background: #ffffff;
         border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
     }
 
     .nav-links.active {
@@ -921,7 +980,9 @@ button {
     }
 }
 
-/* Accessibilité : limiter les animations si demandé par le système */
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
     html {
